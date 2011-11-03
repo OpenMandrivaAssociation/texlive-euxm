@@ -1,5 +1,11 @@
+# revision 20202
+# category Package
+# catalog-ctan undef
+# catalog-date undef
+# catalog-license undef
+# catalog-version undef
 Name:		texlive-euxm
-Version:	20111102
+Version:	20111103
 Release:	1
 Summary:	TeXLive euxm package
 Group:		Publishing
@@ -41,6 +47,7 @@ TeXLive euxm package.
 %{_texmfdistdir}/fonts/tfm/public/euxm/euxm10.tfm
 %{_texmfdistdir}/fonts/tfm/public/euxm/euxm5.tfm
 %{_texmfdistdir}/fonts/tfm/public/euxm/euxm7.tfm
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -51,3 +58,5 @@ TeXLive euxm package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
