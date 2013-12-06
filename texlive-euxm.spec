@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-euxm
 Version:	20111103
-Release:	5
+Release:	6
 Summary:	TeXLive euxm package
 Group:		Publishing
 URL:		http://tug.org/texlive
