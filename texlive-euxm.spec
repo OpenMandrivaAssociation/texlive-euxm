@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-euxm
-Version:	20171106
+Version:	20180303
 Release:	1
 Summary:	TeXLive euxm package
 Group:		Publishing
