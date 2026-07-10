@@ -1,45 +1,20 @@
-Name:		texlive-euxm
-Version:	54074
-Release:	2
-Summary:	TeXLive euxm package
+%global tl_name euxm
+%global tl_revision 54074
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
+Summary:	extended Euler by DEK
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/euxm.r%{version}.tar.xz
+URL:		https://www.ctan.org/pkg/euxm
+License:	LPPL
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/euxm.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive euxm package.
+Includes two additional characters needed for Concrete Math (ca. 1991).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/fonts/source/public/euxm/eubase.mf
-%{_texmfdistdir}/fonts/source/public/euxm/eusmch.mf
-%{_texmfdistdir}/fonts/source/public/euxm/euxm10.mf
-%{_texmfdistdir}/fonts/source/public/euxm/euxm5.mf
-%{_texmfdistdir}/fonts/source/public/euxm/euxm7.mf
-%{_texmfdistdir}/fonts/source/public/euxm/euxmch.mf
-%{_texmfdistdir}/fonts/tfm/public/euxm/euxm10.tfm
-%{_texmfdistdir}/fonts/tfm/public/euxm/euxm5.tfm
-%{_texmfdistdir}/fonts/tfm/public/euxm/euxm7.tfm
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar fonts %{buildroot}%{_texmfdistdir}
